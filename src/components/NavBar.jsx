@@ -15,18 +15,20 @@ const NavBar = () => {
             <span>Book Store</span>
           </Link>
         </div>
-        <div>
+
+        <div className="header-icons">
           <Link to="#">
-            <i class="bi bi-gear-wide-connected"></i>{" "}
+            <i className="bi bi-gear-wide-connected"></i>
           </Link>
           <Link to="">
-            <i class="bi bi-search"></i>
+            <i className="bi bi-search"></i>
           </Link>
-          <Link to="#">
-            <i class="bi bi-cart4"></i>
+          <Link to="/cart">
+            <i className="bi bi-cart4"></i>
+            <span>0</span>
           </Link>
-          <Link to="#">
-            <i class="bi bi-person-circle"></i>{" "}
+          <Link to="/dashboard">
+            <i className="bi bi-person-circle"></i>
           </Link>
         </div>
       </nav>

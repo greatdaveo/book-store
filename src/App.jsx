@@ -10,22 +10,25 @@ import PageNotFound from "./pages/PageNotFound";
 import ProductDetail from "./pages/ProductDetail";
 import ProductList from "./pages/Products/ProductList";
 import SignUpPage from "./pages/SignUpPage";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <NavBar />
+
         <Routes>
           <Route path="/" element={<SharedLayouts />}>
             <Route index element={<HomePage />} />
             <Route path="/dashboard" element={<DashboardPage />} />
-            <Route path="/cartpage" element={<CartPage />} />
+            <Route path="/cart" element={<CartPage />} />
             <Route path="/order" element={<OrderPage />} />
             <Route path="/products" element={<ProductList />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/pagenotfound" element={<PageNotFound />} />{" "}
-            <Route path="/productdetails" element={<ProductDetail />} />{" "}
-            <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/error" element={<PageNotFound />} />
+            <Route path="/products" element={<ProductDetail />} />
+            <Route path="/register" element={<SignUpPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
