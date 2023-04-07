@@ -1,10 +1,14 @@
 import React from "react";
-import "../../styles/Home/HomePage.css";
+import Hero from "./components/Hero";
+import FeaturedProduct from "./components/FeaturedProduct";
+import Testimonial from "./components/Testimonial";
 
 const Home = () => {
   return (
     <main>
-      <h1>Home Page</h1>
+      <Hero />
+      <FeaturedProduct />
+      <Testimonial />
     </main>
   );
 };
