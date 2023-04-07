@@ -1,0 +1,32 @@
+header {
+  padding: 0.5rem 3rem;
+  margin: 0 auto;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  border-bottom: 1px solid #ccc;
+  padding: 0.5rem;
+}
+
+header div:nth-child(1) a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 1000;
+}
+
+header div:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+header div:nth-child(2) i {
+  font-size: 1.5rem;
+  gap: 2rem;
+}
