@@ -11,6 +11,7 @@
   display: flex;
   flex-direction: column;
   /* gap: 0.1rem; */
+  width: 385px;
   box-shadow: 2px 2px 16px rgba(12, 11, 11, 0.02),
     4px 4px 16px rgba(24, 23, 23, 0.04);
   border-radius: 10px;

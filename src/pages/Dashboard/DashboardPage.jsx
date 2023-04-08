@@ -1,9 +1,10 @@
 import React from "react";
+import FilterBar from "../Products/components/FilterBar";
 
 const DashboardPage = () => {
   return (
     <div>
-      <h1>DashBoard Page</h1>
+      <FilterBar />
     </div>
   );
 };
