@@ -1,19 +1,11 @@
 import React from "react";
 import "../styles/Home/ProductCard.css";
 import { Link } from "react-router-dom";
+import Rating from "./Rating";
 // import Book1 from "../assets/images/10001.avif";
 
 const ProductCard = ({ product }) => {
-  const {
-    id,
-    name,
-    overview,
-    long_description,
-    price,
-    poster,
-    rating,
-    best_seller,
-  } = product;
+  const { id, name, overview, price, poster, rating, best_seller } = product;
   return (
     <div className="card-container">
       <div className="product-card">
@@ -30,11 +22,12 @@ const ProductCard = ({ product }) => {
         </div>
 
         <div>
+          <Rating rating={rating} />
+          {/* <i className="bi bi-star-fill"></i>
           <i className="bi bi-star-fill"></i>
           <i className="bi bi-star-fill"></i>
           <i className="bi bi-star-fill"></i>
-          <i className="bi bi-star-fill"></i>
-          <i className="bi bi-star-half"></i>
+          <i className="bi bi-star-half"></i> */}
         </div>
 
         <div>
