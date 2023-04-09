@@ -2,10 +2,20 @@ import React from "react";
 import "../../styles/products/ProductsList.css";
 import ProductCard from "../../components/ProductCard";
 import FilterBar from "./components/FilterBar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ProductList = () => {
   const [showFilter, setShowFilter] = useState(false);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      const response = await fetch("http://localhost:3000/products");
+      const data = await response.json();
+      setProducts(data);
+    }
+    fetchProducts();
+  }, []);
 
   return (
     <div className="products-container">
@@ -20,7 +30,7 @@ const ProductList = () => {
       <div className="products-header">
         <div>
           <h2>
-            All eBooks <span>(15)</span>
+            All eBooks <span>({products.length})</span>
           </h2>
         </div>
 
@@ -32,9 +42,11 @@ const ProductList = () => {
       </div>
 
       <div className="product-list">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {products.map((product) => (
+          <div>
+            <ProductCard key={product.id} product={product} />
+          </div>
+        ))}
       </div>
 
       {/*  */}

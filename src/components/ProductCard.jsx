@@ -1,23 +1,32 @@
 import React from "react";
 import "../styles/Home/ProductCard.css";
 import { Link } from "react-router-dom";
-import Book1 from "../assets/images/10001.avif";
+// import Book1 from "../assets/images/10001.avif";
 
-const ProductCard = () => {
+const ProductCard = ({ product }) => {
+  const {
+    id,
+    name,
+    overview,
+    long_description,
+    price,
+    poster,
+    rating,
+    best_seller,
+  } = product;
   return (
     <div className="card-container">
       <div className="product-card">
-        <Link>
-          <span>Best Seller</span>
-          <img src={Book1} alt="" width="385px" />
+        <Link to={`products/${id}`}>
+          {best_seller && <span>Best Seller</span>}
+          <img src={poster} alt="" width="385px" height="250px" />
         </Link>
 
         <div>
-          <h2>JavaScript Basics To Advance</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-            aliquam culpa harum fuga quidem cupiditate!
-          </p>
+          <Link to={`products/${id}`}>
+            <h4>{name}</h4>
+          </Link>
+          <p>{overview}</p>
         </div>
 
         <div>
@@ -29,7 +38,7 @@ const ProductCard = () => {
         </div>
 
         <div>
-          <span>$50</span>
+          <span>${price}</span>
           <Link>
             <button>
               Add To Cart
