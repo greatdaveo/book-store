@@ -49,7 +49,7 @@
 
 .product-card > div:nth-child(3) {
   padding: 1rem;
-  color: rgb(255, 217, 4);
+  /* color: rgb(255, 217, 4); */
 }
 
 .product-card > div:nth-child(4) {

@@ -7,14 +7,24 @@ const Rating = ({ rating }) => {
   }
 
   return (
-    <div>
-      {ratingArray.map((value, index) =>
-        value ? (
-          <i key={index} className="bi bi-star-fill"></i>
-        ) : (
-          <i key={index} className="bi bi-star"></i>
-        )
-      )}
+    <div style={{ color: "rgb(255, 217, 4)" }}>
+      <div>
+        {ratingArray.map((value, index) =>
+          value ? (
+            <i
+              key={index}
+              className="bi bi-star-fill"
+              style={{ margin: "0.1rem" }}
+            ></i>
+          ) : (
+            <i
+              key={index}
+              className="bi bi-star"
+              style={{ margin: "0.1rem" }}
+            ></i>
+          )
+        )}
+      </div>
     </div>
   );
 };

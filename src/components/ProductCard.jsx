@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
   return (
     <div className="card-container">
       <div className="product-card">
-        <Link to={`products/${id}`}>
+        <Link to={`/products/${id}`}>
           {best_seller && <span>Best Seller</span>}
           <img src={poster} alt="" width="385px" height="250px" />
         </Link>
