@@ -1,0 +1,15 @@
+.dark,
+.dark a {
+  background-color: #1e293b;
+  color: white;
+  height: fit-content;
+}
+
+.dark .logo {
+  background-color: inherit;
+  color: inherit;
+}
+
+.rating {
+  color: rgb(255, 217, 4);
+}

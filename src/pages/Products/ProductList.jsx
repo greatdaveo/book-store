@@ -21,7 +21,7 @@ const ProductList = () => {
     <div className="products-container">
       {/* This is the Filter Bar */}
       {showFilter && (
-        <div className="filter-bar">
+        <div className="filter-bar dark">
           <FilterBar setShowFilter={setShowFilter} />
         </div>
       )}
@@ -36,14 +36,14 @@ const ProductList = () => {
 
         <div>
           <span onClick={() => setShowFilter(!showFilter)}>
-            <i class="bi bi-three-dots-vertical"></i>
+            <i className="bi bi-three-dots-vertical"></i>
           </span>
         </div>
       </div>
 
       <div className="product-list">
         {products.map((product) => (
-          <div>
+          <div key={product.id}>
             <ProductCard key={product.id} product={product} />
           </div>
         ))}

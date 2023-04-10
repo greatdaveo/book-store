@@ -11,12 +11,26 @@ import ProductDetail from "./pages/ProductDetail";
 import ProductList from "./pages/Products/ProductList";
 import SignUpPage from "./pages/SignUpPage";
 import NavBar from "./components/NavBar";
+import ScrollToTop from "./components/ScrollToTop";
+
+import { useState, useEffect } from "react";
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
+
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar />
+        <ScrollToTop />
+        <NavBar darkMode={darkMode} setDarkMode={setDarkMode} />
 
         <Routes>
           <Route path="/" element={<SharedLayouts />}>

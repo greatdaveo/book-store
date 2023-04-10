@@ -1,5 +1,8 @@
 .filter-section {
   padding: 1rem;
+  /* background: white; */
+  /* color: black; */
+  height: 100%;
 }
 
 .filter-section li {

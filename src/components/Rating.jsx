@@ -7,7 +7,7 @@ const Rating = ({ rating }) => {
   }
 
   return (
-    <div style={{ color: "rgb(255, 217, 4)" }}>
+    <div style={{ color: "rgb(255, 217, 4)" }} className="rating">
       <div>
         {ratingArray.map((value, index) =>
           value ? (
