@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/components/NavBar.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import Search from "./Search";
 
 const NavBar = ({ darkMode, setDarkMode }) => {
   const [showSearch, setShowSearch] = useState(false);
@@ -44,14 +45,7 @@ const NavBar = ({ darkMode, setDarkMode }) => {
         </nav>
       </header>
 
-      {showSearch && (
-        <div className="nav-input">
-          <label htmlFor="">
-            <input type="text" placeholder="Search" />
-          </label>
-          <i class="bi bi-search"></i>
-        </div>
-      )}
+      {showSearch && <Search setShowSearch={setShowSearch} />}
     </>
   );
 };
