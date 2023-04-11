@@ -8,14 +8,14 @@ const Search = ({ setShowSearch }) => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    setShowSearch(false);
     navigate(`/products?q=${searchRef.current.value}`);
+    setShowSearch(false);
   };
 
   return (
     <div>
       <div className="nav-input">
-        <form onClick={handleSearch}>
+        <form onSubmit={handleSearch}>
           <input
             ref={searchRef}
             type="text"
@@ -23,7 +23,7 @@ const Search = ({ setShowSearch }) => {
             placeholder="Search"
             autoComplete="off"
           />
-          <button type="submit" onClick={handleSearch}>
+          <button type="submit">
             <i class="bi bi-search"></i>
           </button>
         </form>

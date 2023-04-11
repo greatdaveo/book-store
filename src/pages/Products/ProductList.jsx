@@ -4,13 +4,18 @@ import ProductCard from "../../components/ProductCard";
 import FilterBar from "./components/FilterBar";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useFilter } from "../../context/FilterContext";
 
 const ProductList = () => {
   const [showFilter, setShowFilter] = useState(false);
   const [products, setProducts] = useState([]);
+
+  // THIS IS FOR THE SEARCH FEATURE
   const search = useLocation().search;
   const searchTerm = new URLSearchParams(search).get("q");
-  console.log(searchTerm);
+  // :::::::::::::::::::::::::::::::
+
+  // const { ProductList } = useFilter();
 
   useEffect(() => {
     async function fetchProducts() {
