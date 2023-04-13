@@ -8,14 +8,14 @@ import { useFilter } from "../../context/FilterContext";
 
 const ProductList = () => {
   const [showFilter, setShowFilter] = useState(false);
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
 
   // THIS IS FOR THE SEARCH FEATURE
   const search = useLocation().search;
   const searchTerm = new URLSearchParams(search).get("q");
   // :::::::::::::::::::::::::::::::
 
-  // const { ProductList } = useFilter();
+  const { products, initialProductList } = useFilter();
 
   useEffect(() => {
     async function fetchProducts() {
@@ -25,10 +25,11 @@ const ProductList = () => {
         }`
       );
       const data = await response.json();
-      setProducts(data);
+      // setProducts(data);
+      initialProductList(data);
     }
     fetchProducts();
-  }, []);
+  }, [searchTerm]);
 
   return (
     <div className="products-container">
