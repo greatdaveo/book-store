@@ -1,0 +1,19 @@
+.login-drop-down ul {
+  position: absolute;
+  background-color: white;
+  list-style: none;
+  right: -1rem;
+  top: 1rem;
+  /* padding: 1rem; */
+}
+
+.login-drop-down li {
+  padding: 0.5rem 3rem 0.5rem 1rem;
+  font-weight: bold; 
+}
+
+.login-drop-down li:hover {
+  border-radius: 5px;
+  background-color: rgb(74, 80, 173);
+  color: white;
+}

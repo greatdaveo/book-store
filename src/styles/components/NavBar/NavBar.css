@@ -42,3 +42,7 @@ header div:nth-child(2) i {
   color: white;
   font-weight: 500;
 }
+
+.header-icons :last-child {
+  
+}

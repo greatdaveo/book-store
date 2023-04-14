@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
 import "./App.css";
 import SharedLayouts from "./components/SharedLayouts";
 import CartPage from "./pages/Cart/CartPage";
@@ -10,10 +11,8 @@ import PageNotFound from "./pages/PageNotFound";
 import ProductDetail from "./pages/ProductDetail";
 import ProductList from "./pages/Products/ProductList";
 import SignUpPage from "./pages/SignUpPage";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 import ScrollToTop from "./components/ScrollToTop";
-
-import { useState, useEffect } from "react";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -41,6 +40,7 @@ function App() {
             <Route path="/products" element={<ProductList />} />
             <Route path="/products/:id" element={<ProductDetail />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<SignUpPage />} />
             <Route path="/error" element={<PageNotFound />} />
             <Route path="/register" element={<SignUpPage />} />
           </Route>

@@ -1,11 +1,14 @@
 import React from "react";
-import "../styles/components/NavBar.css";
+import "../../styles/components/NavBar/NavBar.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import Search from "./Search";
+import Search from "../Search";
+import DropDownLogin from "./DropDownLogin";
+import DropDownLogout from "./DropDownLogout";
 
 const NavBar = ({ darkMode, setDarkMode }) => {
   const [showSearch, setShowSearch] = useState(false);
+  const [dropDown, setDropDown] = useState(false);
 
   return (
     <>
@@ -38,8 +41,14 @@ const NavBar = ({ darkMode, setDarkMode }) => {
               <i className="bi bi-cart4"></i>
               <span>0</span>
             </Link>
-            <Link to="/dashboard">
+            <Link
+              to=""
+              style={{ position: "relative" }}
+              onClick={() => setDropDown(!dropDown)}
+            >
               <i className="bi bi-person-circle"></i>
+              {/* <DropDownLogin /> */}
+              {dropDown && <DropDownLogout />}
             </Link>
           </div>
         </nav>
