@@ -1,8 +1,3 @@
-.logout-drop-down {
-  background-color: white;
-  /* z-index: 1; */
-}
-
 .logout-drop-down ul {
   position: absolute;
   background-color: white;
@@ -13,13 +8,12 @@
 }
 
 .logout-drop-down li {
-  padding: 0.5rem;
+  padding: 0.5rem 3rem 0.5rem 1rem;
   font-weight: 300;
 }
 
 .logout-drop-down li:hover {
-  /* border-radius: 5px; */
+  border-radius: 5px;
   background-color: rgb(74, 80, 173);
-  padding: 0.5rem;
   color: white;
 }

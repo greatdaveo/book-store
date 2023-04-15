@@ -29,9 +29,15 @@ const SignUp = () => {
     );
     const data = await response.json();
     // THIS IS FOR THE REACT TOASTIFY
+    // console.log(data);
     data.accessToken ? navigate("/products") : toast.error(data);
-    console.log(data);
+
+    if (data.accessToken) {
+      sessionStorage.setItem("token", JSON.stringify(data.accessToken));
+      sessionStorage.setItem("userID", JSON.stringify(data.user.id));
+    }
   }
+  // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
   return (
     <main className="logout-container">

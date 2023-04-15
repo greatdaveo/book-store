@@ -3,12 +3,15 @@ import "../../styles/components/NavBar/NavBar.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Search from "../Search";
-import DropDownLogin from "./DropDownLogin";
-import DropDownLogout from "./DropDownLogout";
+import DropDownLogin from "./DropDownLogout";
+import DropDownLogout from "./DropDownLogin";
 
 const NavBar = ({ darkMode, setDarkMode }) => {
   const [showSearch, setShowSearch] = useState(false);
   const [dropDown, setDropDown] = useState(false);
+
+  // TO GET THE SESSION TOKEN
+  const token = JSON.parse(sessionStorage.getItem("token"));
 
   return (
     <>
@@ -42,13 +45,11 @@ const NavBar = ({ darkMode, setDarkMode }) => {
               <span>0</span>
             </Link>
             <Link
-              to=""
               style={{ position: "relative" }}
               onClick={() => setDropDown(!dropDown)}
             >
               <i className="bi bi-person-circle"></i>
-              {/* <DropDownLogin /> */}
-              {dropDown && <DropDownLogout />}
+              {dropDown && (token ? <DropDownLogout /> : <DropDownLogin />)}
             </Link>
           </div>
         </nav>
