@@ -14,6 +14,10 @@ import SignUpPage from "./pages/SignUpPage";
 import NavBar from "./components/NavBar/NavBar";
 import ScrollToTop from "./components/ScrollToTop";
 
+// REACT TOASTIFY IMPORTS
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
@@ -29,6 +33,11 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <ScrollToTop />
+        <ToastContainer
+          closeButton={false}
+          autoClose={3000}
+          position={"bottom-center"}
+        />
         <NavBar darkMode={darkMode} setDarkMode={setDarkMode} />
 
         <Routes>

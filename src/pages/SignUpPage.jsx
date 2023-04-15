@@ -1,7 +1,13 @@
 import React from "react";
 import "../styles/pages/SignUpPage.css";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  // For useNavigate in the React Toastify
+  const navigate = useNavigate();
+
+  // TO HANDLE SIGNUP SUBMIT
   async function handleSignUp(e) {
     e.preventDefault();
     const authDetails = {
@@ -22,6 +28,8 @@ const SignUp = () => {
       requestOptions
     );
     const data = await response.json();
+    // THIS IS FOR THE REACT TOASTIFY
+    data.accessToken ? navigate("/products") : toast.error(data);
     console.log(data);
   }
 
