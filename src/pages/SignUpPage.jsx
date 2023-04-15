@@ -2,13 +2,36 @@ import React from "react";
 import "../styles/pages/SignUpPage.css";
 
 const SignUp = () => {
+  async function handleSignUp(e) {
+    e.preventDefault();
+    const authDetails = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      password: e.target.password.value,
+    };
+
+    // This is for the JSON request options
+    const requestOptions = {
+      method: "POST",
+      headers: { "content-Type": "application/json" },
+      body: JSON.stringify(authDetails),
+    };
+
+    const response = await fetch(
+      "http://localhost:8000/register",
+      requestOptions
+    );
+    const data = await response.json();
+    console.log(data);
+  }
+
   return (
     <main className="logout-container">
       <section>
         <p>Register</p>
       </section>
 
-      <form>
+      <form onSubmit={handleSignUp}>
         <div>
           <label htmlFor="name">Your name:</label>
           <input
