@@ -3,10 +3,18 @@ export const cartReducer = (state, action) => {
 
   switch (type) {
     case "ADD_TO_CART":
-      return { ...state, cartList: payload.products };
+      return {
+        ...state,
+        cartList: payload.products,
+        totalPrice: payload.totalPrice,
+      };
 
     case "REMOVE_FROM_CART":
-      return { ...state, cartList: payload.products };
+      return {
+        ...state,
+        cartList: payload.products,
+        totalPrice: payload.totalPrice,
+      };
 
     case "CLEAR_CART":
       return {
@@ -15,12 +23,12 @@ export const cartReducer = (state, action) => {
         totalPrice: payload.totalPrice, //0 can also be used instead of payload.totalPrice
       };
 
-    case "UPDATE_PRICE":
-      return {
-        ...state,
-        totalPrice: payload.addedTotal,
-        totalPrice: payload.subtractedTotal,
-      };
+    // case "UPDATE_PRICE":
+    //   return {
+    //     ...state,
+    //     totalPrice: payload.totalPrice,
+    //     totalPrice: payload.totalPrice,
+    //   };
 
     default:
       throw new Error("No case found!");

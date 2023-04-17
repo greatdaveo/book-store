@@ -15,11 +15,13 @@ export const CartProvider = ({ children }) => {
 
   function addToCart(product) {
     const updatedList = state.cartList.concat(product);
+    const addedTotal = state.totalPrice + product.price;
 
     dispatch({
       type: "ADD_TO_CART",
       payload: {
         products: updatedList,
+        totalPrice: addedTotal,
       },
     });
   }
@@ -28,11 +30,13 @@ export const CartProvider = ({ children }) => {
     const updatedList = state.cartList.filter(
       (cartItem) => cartItem.id !== product.id
     );
+    const subtractedTotal = state.totalPrice - product.price;
 
     dispatch({
       type: "REMOVE_FROM_CART",
       payload: {
         products: updatedList,
+        totalPrice: subtractedTotal,
       },
     });
   }
@@ -47,19 +51,19 @@ export const CartProvider = ({ children }) => {
     });
   }
 
-  //   UPDATED PRICE
-  function updateTotalPrice() {
-    const addedTotal = state.totalPrice + product.price;
-    const subtractedTotal = state.totalPrice - product.price;
+  //   //   UPDATED PRICE
+  //   function updateTotalPrice() {
+  //     const addedTotal = state.totalPrice + product.price;
+  //     const subtractedTotal = state.totalPrice - product.price;
 
-    dispatch({
-      type: "UPDATE_PRICE",
-      payload: {
-        addedTotal: addedTotal,
-        subtractedTotal: subtractedTotal,
-      },
-    });
-  }
+  //     dispatch({
+  //       type: "UPDATE_PRICE",
+  //       payload: {
+  //         addedTotal: addedTotal,
+  //         subtractedTotal: subtractedTotal,
+  //       },
+  //     });
+  //   }
 
   const value = {
     cartList: state.cartList,
@@ -77,7 +81,7 @@ export const CartProvider = ({ children }) => {
 };
 
 export const useCart = () => {
-  const context = useContext();
+  const context = useContext(CartContext);
 
   return context;
 };

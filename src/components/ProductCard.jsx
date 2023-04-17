@@ -1,11 +1,20 @@
-import React from "react";
+import React, { Profiler } from "react";
 import "../styles/Home/ProductCard.css";
 import { Link } from "react-router-dom";
 import Rating from "./Rating";
+import { useCart } from "../context/CartContext";
 // import Book1 from "../assets/images/10001.avif";
 
 const ProductCard = ({ product }) => {
   const { id, name, overview, price, poster, rating, best_seller } = product;
+
+  const { cartList, addToCart, removeFromCart } = useCart();
+
+  function handleClick(product) {
+    // console.log(product);
+    addToCart(product);
+  }
+
   return (
     <div className="card-container">
       <div className="product-card">
@@ -23,22 +32,26 @@ const ProductCard = ({ product }) => {
 
         <div>
           <Rating rating={rating} />
-          {/* <i className="bi bi-star-fill"></i>
-          <i className="bi bi-star-fill"></i>
-          <i className="bi bi-star-fill"></i>
-          <i className="bi bi-star-fill"></i>
-          <i className="bi bi-star-half"></i> */}
         </div>
 
         <div>
           <span>${price}</span>
           <Link>
-            <button>
+            <button onClick={() => handleClick(product)}>
               Add To Cart
               <span>
                 <i className="bi bi-plus-lg"></i>
               </span>
             </button>
+            {/* <button
+              onClick={() => handleClick(product)}
+              style={{ background: "red" }}
+            >
+              Remove
+              <span>
+                <i className="bi bi-trash3"></i>
+              </span>
+            </button> */}
           </Link>
         </div>
       </div>

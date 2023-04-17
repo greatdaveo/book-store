@@ -1,9 +1,11 @@
 import React from "react";
 import "../../../styles/pages/Cart/CartCard.css";
 import { Link } from "react-router-dom";
-import SampleImage from "../../../assets/images/10001.avif";
+import { useCart } from "../../../context/CartContext";
 
 const CartCard = ({ product }) => {
+  const { removeFromCart } = useCart();
+
   return (
     <div>
       <div className="cart-item">
@@ -14,11 +16,11 @@ const CartCard = ({ product }) => {
             <Link to={`products/${product.id}`}>
               <h4>{product.name}</h4>
             </Link>
-            <button>Remove</button>
+            <button onClick={() => removeFromCart(product)}>Remove</button>
           </div>
         </div>
 
-        <p>$29</p>
+        <p>${product.price}</p>
       </div>
     </div>
   );

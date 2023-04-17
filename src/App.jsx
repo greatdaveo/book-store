@@ -19,9 +19,13 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(
+    JSON.parse(localStorage.getItem("darkMode")) || false
+  );
 
   useEffect(() => {
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+
     if (darkMode) {
       document.documentElement.classList.add("dark");
     } else {

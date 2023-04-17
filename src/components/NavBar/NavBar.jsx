@@ -5,6 +5,7 @@ import { useState } from "react";
 import Search from "../Search";
 import DropDownLogin from "./DropDownLogout";
 import DropDownLogout from "./DropDownLogin";
+import { useCart } from "../../context/CartContext";
 
 const NavBar = ({ darkMode, setDarkMode }) => {
   const [showSearch, setShowSearch] = useState(false);
@@ -12,6 +13,9 @@ const NavBar = ({ darkMode, setDarkMode }) => {
 
   // TO GET THE SESSION TOKEN
   const token = JSON.parse(sessionStorage.getItem("token"));
+
+  // To show the the cartList length from useCart
+  const { cartList } = useCart();
 
   return (
     <>
@@ -42,7 +46,7 @@ const NavBar = ({ darkMode, setDarkMode }) => {
             </Link>
             <Link to="/cart">
               <i className="bi bi-cart4"></i>
-              <span>0</span>
+              <span>{cartList.length}</span>
             </Link>
             <Link
               style={{ position: "relative" }}
