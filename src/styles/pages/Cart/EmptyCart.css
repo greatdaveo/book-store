@@ -1,0 +1,29 @@
+.empty-cart {
+  text-align: center;
+  margin: 2rem auto;
+  /* border: 1px solid gray; */
+  width: fit-content;
+  padding: 5rem;
+}
+
+.empty-cart > div {
+  font-size: 7rem;
+}
+
+.empty-cart button > i {
+  background: inherit;
+}
+
+.empty-cart p {
+  font-size: 1.5rem;
+}
+
+.empty-cart button {
+  padding: 1rem;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+
+.empty-cart button:hover {
+  background-color: rgb(86, 86, 179);
+}

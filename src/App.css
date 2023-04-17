@@ -1,6 +1,7 @@
 .dark,
-.dark a {
+.dark a i {
   background-color: #1e293b;
+  /* color: white; */
   color: white;
   height: fit-content;
 }
@@ -12,4 +13,8 @@
 
 .rating {
   color: rgb(255, 217, 4);
+}
+
+.dark ul {
+  /* background: red; */
 }

@@ -1,0 +1,27 @@
+.cart-item {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+  padding: 1rem;
+}
+
+.cart-item img {
+  border-radius: 5px;
+  float: left;
+  margin-right: 1rem;
+}
+
+.cart-item-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.3rem;
+}
+
+.cart-item-text button {
+  color: red;
+  background: none;
+  width: fit-content;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
