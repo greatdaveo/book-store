@@ -21,8 +21,8 @@ const DropDownLogin = () => {
         <Link to="">
           <li>ebook</li>
         </Link>
-        <Link to="/register">
-          <li>Register</li>
+        <Link to="/dashboard">
+          <li>Dashboard</li>
         </Link>
         <Link>
           <li style={{ borderTop: "1px solid #f2f1ef" }} onClick={handleLogout}>
