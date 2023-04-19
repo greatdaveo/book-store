@@ -31,9 +31,9 @@ const DashboardPage = () => {
   }, []);
 
   return (
-    <main>
+    <main className="dashboard-page">
       <section>
-        <p>DashBoard Page</p>
+        <p>My DashBoard</p>
       </section>
 
       <section>

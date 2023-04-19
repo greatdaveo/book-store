@@ -1,0 +1,10 @@
+.dashboard-page > section > p {
+  text-align: center;
+  font-size: 2rem;
+  margin: 2rem auto;
+  font-weight: bold;
+}
+
+.dashboard-page :nth-child(2) > div {
+  /* display: flex; */
+}

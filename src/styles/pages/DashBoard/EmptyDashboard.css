@@ -1,0 +1,23 @@
+.empty-dashboard {
+  text-align: center;
+  margin: 1rem auto;
+}
+
+.empty-dashboard > div > i {
+  font-size: 4rem;
+  color: green;
+}
+
+.empty-dashboard p {
+  font-size: 1.5rem;
+  margin: 0.5rem auto;
+}
+
+.empty-dashboard button {
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+}
+
+.empty-dashboard button:hover {
+  background: rgb(75, 75, 182);
+}

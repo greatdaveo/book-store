@@ -1,30 +1,32 @@
 import React from "react";
+import "../../../styles/pages/DashBoard/DashBoardCard.css";
 import { Link } from "react-router-dom";
 
 const DashboardCard = ({ order }) => {
   return (
-    <div>
+    <div className="dashboard-card">
       <div>
         <span>Order Id: {order.id}</span>
-        <span>Total: ${order.amount_paid}</span>
+        <span>Total: ${order.amountPaid}</span>
       </div>
-      {order.cartList.map((product) => (
-        <div key={product.id}>
-          <div>
-            <Link to={`/products/${product.id}`}>
-              <img src={product.poster} alt={product.name} />
-            </Link>
-            <div className="">
+
+      <div>
+        {order.cartList.map((product) => (
+          <div key={product.id} className="dashboard-card-details">
+            <div>
               <Link to={`/products/${product.id}`}>
-                <p>{product.name}</p>
+                <img src={product.poster} alt={product.name} />
               </Link>
               <div>
+                <Link to={`/products/${product.id}`}>
+                  <p>{product.name}</p>
+                </Link>
                 <span>${product.price}</span>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
