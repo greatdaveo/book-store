@@ -1,9 +1,12 @@
-.dark,
-.dark a i {
-  background-color: #1e293b;
-  /* color: white; */
+.dark {
+  background: #1e293b;
   color: white;
   height: fit-content;
+}
+
+.dark a i {
+  background: inherit;
+  color: white;
 }
 
 .dark .logo {

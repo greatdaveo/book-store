@@ -1,5 +1,6 @@
 import React, { Profiler } from "react";
 import "../styles/Home/ProductCard.css";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Rating from "./Rating";
 import { useCart } from "../context/CartContext";
@@ -8,12 +9,21 @@ import { useCart } from "../context/CartContext";
 const ProductCard = ({ product }) => {
   const { id, name, overview, price, poster, rating, best_seller } = product;
 
+  // FOR THE cartLIST LOGIC
+  const [inCart, setInCart] = useState(false);
   const { cartList, addToCart, removeFromCart } = useCart();
 
-  function handleClick(product) {
-    // console.log(product);
-    addToCart(product);
-  }
+  useEffect(() => {
+    const productInCart = cartList.find(
+      (cartItem) => cartItem.id === product.id
+    );
+
+    if (productInCart) {
+      setInCart(true);
+    } else {
+      setInCart(false);
+    }
+  }, [cartList, product.id]);
 
   return (
     <div className="card-container">
@@ -37,21 +47,31 @@ const ProductCard = ({ product }) => {
         <div>
           <span>${price}</span>
           <Link>
-            <button onClick={() => handleClick(product)}>
-              Add To Cart
-              <span>
-                <i className="bi bi-plus-lg"></i>
-              </span>
-            </button>
-            {/* <button
-              onClick={() => handleClick(product)}
-              style={{ background: "red" }}
-            >
-              Remove
-              <span>
-                <i className="bi bi-trash3"></i>
-              </span>
-            </button> */}
+            {!inCart && (
+              <button
+                onClick={() => addToCart(product)}
+                className={`${product.in_stock ? "" : "not-in-stock"}`}
+                disabled={product.in_stock ? "" : "disabled"}
+              >
+                Add To Cart
+                <span>
+                  <i className="bi bi-plus-lg"></i>
+                </span>
+              </button>
+            )}
+
+            {inCart && (
+              <button
+                onClick={() => removeFromCart(product)}
+                style={{ background: "red" }}
+                disabled={product.in_stock ? "" : "disabled"}
+              >
+                Remove
+                <span>
+                  <i className="bi bi-trash3"></i>
+                </span>
+              </button>
+            )}
           </Link>
         </div>
       </div>

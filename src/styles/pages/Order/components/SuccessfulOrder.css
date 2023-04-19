@@ -1,0 +1,23 @@
+.successful-order {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 2rem;
+  margin: 4rem auto;
+  padding: 2rem;
+  font-size: 1.5rem;
+}
+
+.successful-order > :nth-child(1) i {
+  font-size: 5rem;
+  padding: 1rem;
+  color: greenyellow;
+}
+
+.successful-order button {
+  padding: 1rem 2rem;
+}
+
+.successful-order button:hover {
+  background: rgb(53, 53, 128);
+}

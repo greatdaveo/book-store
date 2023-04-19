@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./App.css";
 import SharedLayouts from "./components/SharedLayouts";
@@ -33,6 +33,9 @@ function App() {
     }
   }, [darkMode]);
 
+  // TOKEN login CONDITIONS
+  const token = JSON.parse(sessionStorage.getItem("token"));
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -48,8 +51,17 @@ function App() {
           <Route path="/" element={<SharedLayouts />}>
             <Route index element={<HomePage />} />
             <Route path="/dashboard" element={<DashboardPage />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/order" element={<OrderPage />} />
+
+            <Route
+              path="/cart"
+              element={token ? <CartPage /> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/order"
+              // element={<OrderPage />}
+              element={token ? <OrderPage /> : <Navigate to="/login" />}
+            />
+
             <Route path="/products" element={<ProductList />} />
             <Route path="/products/:id" element={<ProductDetail />} />
             <Route path="/login" element={<LoginPage />} />

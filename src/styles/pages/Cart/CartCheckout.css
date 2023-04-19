@@ -18,7 +18,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 2rem auto;
+  margin: 0.3rem auto;
   border-radius: 10px;
   max-width: 100%;
 }
@@ -77,10 +77,15 @@
   width: 15%;
 }
 
+.checkout-card form :nth-child(6) {
+  text-align: center;
+  color: green;
+  font-weight: bold;
+}
+
 .checkout-card form button {
   padding: 1rem 1rem;
-  margin-top: 1rem;
-  /* margin: 0 auto; */
+  /* margin-top: 0.5rem; */
 }
 
 .checkout-card form button:hover {

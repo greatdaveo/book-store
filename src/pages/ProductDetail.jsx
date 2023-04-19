@@ -3,6 +3,7 @@ import "../styles/products/ProductDetail.css";
 import { useState, useEffect } from "react";
 import Rating from "../components/Rating";
 import { useParams } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 const ProductDetail = () => {
   const [product, setProduct] = useState({});
@@ -16,6 +17,22 @@ const ProductDetail = () => {
     }
     fetchProduct();
   }, [id]);
+
+  // THIS IS FOR THE cartList logic
+  const { cartList, addToCart, removeFromCart } = useCart();
+  const [inCart, setInCart] = useState(false);
+
+  useEffect(() => {
+    const productInCart = cartList.find(
+      (cartItem) => cartItem.id === product.id
+    );
+
+    if (productInCart) {
+      setInCart(true);
+    } else {
+      setInCart(false);
+    }
+  }, [cartList, product.id]);
 
   return (
     <main className="product-detail-container">
@@ -68,12 +85,25 @@ const ProductDetail = () => {
           </div>
 
           <div>
-            <button>
-              Add To Cart <i className="bi bi-plus-lg"></i>
-            </button>
-            <button>
-              Remove Item <i className="bi bi-trash3"></i>
-            </button>
+            {!inCart && (
+              <button
+                onClick={() => addToCart(product)}
+                disabled={product.in_stock ? "" : "disabled"}
+                className={`${product.in_stock ? "" : "not-in-stock"}`}
+              >
+                Add To Cart <i className="bi bi-plus-lg"></i>
+              </button>
+            )}
+            {inCart && (
+              <button
+                onClick={() => removeFromCart(product)}
+                style={{ background: "red" }}
+                disabled={product.in_stock ? "" : "disabled"}
+                // className={`${product.in_stock ? "" : "not-in-stock"}`}
+              >
+                Remove Item <i className="bi bi-trash3"></i>
+              </button>
+            )}
           </div>
 
           <div>
