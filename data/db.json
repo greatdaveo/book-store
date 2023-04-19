@@ -553,6 +553,56 @@
         "id": 5
       },
       "id": 9
+    },
+    {
+      "cartList": [
+        {
+          "id": 10006,
+          "name": "Frontend Fastlane Plan With Projects",
+          "overview": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Error unde quisquam magni vel eligendi nam.",
+          "long_description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta aut, vel ipsum maxime quam quia, quaerat tempore minus odio exercitationem illum et eos, quas ipsa aperiam magnam officiis libero expedita quo voluptas deleniti sit dolore? Praesentium tempora cumque facere consectetur quia, molestiae quam, accusamus eius corrupti laudantium aliquid! Tempore laudantium unde labore voluptates repellat, dignissimos aperiam ad ipsum laborum recusandae voluptatem non dolore. Reiciendis cum quo illum. Dolorem, molestiae corporis.",
+          "price": 99,
+          "poster": "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=650&q=40",
+          "image_local": "/assets/images/10006.avif",
+          "rating": 5,
+          "in_stock": true,
+          "size": 10,
+          "best_seller": false
+        }
+      ],
+      "amountPaid": 99,
+      "quantity": 1,
+      "user": {
+        "name": "Olowo",
+        "email": "Olowo@example.com",
+        "id": 5
+      },
+      "id": 10
+    },
+    {
+      "cartList": [
+        {
+          "id": 10001,
+          "name": "Basics To Advanced In React",
+          "overview": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Error unde quisquam magni vel eligendi nam.",
+          "long_description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta aut, vel ipsum maxime quam quia, quaerat tempore minus odio exercitationem illum et eos, quas ipsa aperiam magnam officiis libero expedita quo voluptas deleniti sit dolore? Praesentium tempora cumque facere consectetur quia, molestiae quam, accusamus eius corrupti laudantium aliquid! Tempore laudantium unde labore voluptates repellat, dignissimos aperiam ad ipsum laborum recusandae voluptatem non dolore. Reiciendis cum quo illum. Dolorem, molestiae corporis.",
+          "price": 29,
+          "poster": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=650&q=40",
+          "image_local": "/assets/images/10001.avif",
+          "rating": 5,
+          "in_stock": true,
+          "size": 5,
+          "best_seller": true
+        }
+      ],
+      "amountPaid": 29,
+      "quantity": 1,
+      "user": {
+        "name": "Timi101",
+        "email": "Timi101@email.com",
+        "id": 7
+      },
+      "id": 11
     }
   ],
   "users": [
@@ -591,6 +641,18 @@
       "password": "$2a$10$TVZuN0iNGMOGAQs2QurfA.X0tE4PiuYGSBVovDq1Pkj4RSwXFBK5O",
       "name": "Olowo",
       "id": 6
+    },
+    {
+      "email": "Timi101@email.com",
+      "password": "$2a$10$F3YH5S5BlSW97767/UMoCem8.mMsahAbT.xQFJAJPeBReGIXnNvhe",
+      "name": "Timi101",
+      "id": 7
+    },
+    {
+      "email": "Timi@gmail.com",
+      "password": "$2a$10$Dd/HVBLyCsiv0mtNTsNieOSIExFpFB8HAtb1NIqOHO8XjIVTLNMUq",
+      "name": "Timi",
+      "id": 8
     }
   ]
 }
