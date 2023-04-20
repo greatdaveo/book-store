@@ -10,6 +10,12 @@ export async function login(authDetails) {
     "http://localhost:8000/login/login",
     requestOptions
   );
+
+  //   console.log(response);
+  if (!response.ok) {
+    throw { message: response.statusText, status: response.status };
+  }
+
   const data = await response.json();
   // console.log(data);
 
@@ -33,6 +39,12 @@ export async function register(authDetail) {
     "http://localhost:8000/register",
     requestOptions
   );
+
+  //   console.log(response);
+  if (!response.ok) {
+    throw { message: response.statusText, status: response.status };
+  }
+
   const data = await response.json();
   // console.log(data);
 

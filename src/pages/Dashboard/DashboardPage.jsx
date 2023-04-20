@@ -6,14 +6,19 @@ import EmptyDashboard from "../../pages/Dashboard/components/EmptyDashboard";
 
 // This is the getUserOrders from dataService
 import { getUserOrders } from "../../services/dataService";
+import { toast } from "react-toastify";
 
 const DashboardPage = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     async function fetchOrders() {
-      const data = await getUserOrders();
-      setOrders(data);
+      try {
+        const data = await getUserOrders();
+        setOrders(data);
+      } catch (error) {
+        toast.error(error.message, { closeButton: true });
+      }
     }
     fetchOrders();
   }, []); //eslint-disable-line

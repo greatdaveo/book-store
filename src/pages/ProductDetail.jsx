@@ -7,6 +7,7 @@ import { useCart } from "../context/CartContext";
 
 // This id from productService
 import { getProduct } from "../services/productService";
+import { toast } from "react-toastify";
 
 const ProductDetail = () => {
   const [product, setProduct] = useState({});
@@ -14,8 +15,13 @@ const ProductDetail = () => {
 
   useEffect(() => {
     async function fetchProduct() {
-      const data = await getProduct(id);
-      setProduct(data);
+      try {
+        const data = await getProduct(id);
+        setProduct(data);
+      } catch (error) {
+        // console.log(error.message);
+        toast.error(error.message, { closeButton: true });
+      }
     }
     fetchProduct();
   }, [id]);

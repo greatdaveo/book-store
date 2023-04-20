@@ -7,6 +7,7 @@ import { logout } from "../../services/authService";
 
 // This is the getUser from the dataService
 import { getUser } from "../../services/dataService";
+import { toast } from "react-toastify";
 
 const DropDownLogin = ({ setDropdown }) => {
   const navigate = useNavigate();
@@ -15,8 +16,12 @@ const DropDownLogin = ({ setDropdown }) => {
 
   useEffect(() => {
     async function fetchData() {
-      const data = await getUser();
-      data.email ? setUser(data) : handleLogout();
+      try {
+        const data = await getUser();
+        data.email ? setUser(data) : handleLogout();
+      } catch (error) {
+        toast.error(error.message, { closeButton: true });
+      }
     }
     fetchData();
   }, []);

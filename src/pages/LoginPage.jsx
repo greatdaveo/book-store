@@ -16,13 +16,18 @@ const LoginPage = () => {
 
   async function handleLogin(e) {
     e.preventDefault();
-    const authDetails = {
-      email: emailRef.current.value,
-      password: passwordRef.current.value,
-    };
 
-    const data = await login(authDetails);
-    data.accessToken ? navigate("/products") : toast.error(data);
+    try {
+      const authDetails = {
+        email: emailRef.current.value,
+        password: passwordRef.current.value,
+      };
+
+      const data = await login(authDetails);
+      data.accessToken ? navigate("/products") : toast.error(data);
+    } catch (error) {
+      toast.error(error.message, { closeButton: true });
+    }
   }
   // ::::::::::::::::::::::::::::::::::::::::::::::::
 

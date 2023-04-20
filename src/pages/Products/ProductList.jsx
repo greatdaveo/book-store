@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 import { useFilter } from "../../context/FilterContext";
 // This is from productService
 import { getProductList } from "../../services/productService";
+import { toast } from "react-toastify";
 
 const ProductList = () => {
   const [showFilter, setShowFilter] = useState(false);
@@ -20,9 +21,13 @@ const ProductList = () => {
 
   useEffect(() => {
     async function fetchProducts() {
-      const data = await getProductList(searchTerm);
-
-      initialProductList(data);
+      try {
+        const data = await getProductList(searchTerm);
+        initialProductList(data);
+      } catch (error) {
+        // console.log(error.message);
+        toast.error(error.message, { closeButton: true });
+      }
     }
     fetchProducts();
   }, [searchTerm]);

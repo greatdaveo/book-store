@@ -13,15 +13,20 @@ const SignUp = () => {
   // TO HANDLE SIGNUP SUBMIT
   async function handleSignUp(e) {
     e.preventDefault();
-    const authDetails = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      password: e.target.password.value,
-    };
 
-    const data = await register(authDetails);
-    // THIS IS FOR THE REACT TOASTIFY
-    data.accessToken ? navigate("/products") : toast.error(data);
+    try {
+      const authDetails = {
+        name: e.target.name.value,
+        email: e.target.email.value,
+        password: e.target.password.value,
+      };
+
+      const data = await register(authDetails);
+      // THIS IS FOR THE REACT TOASTIFY
+      data.accessToken ? navigate("/products") : toast.error(data);
+    } catch (error) {
+      toast.error(error.message, { closeButton: true });
+    }
   }
   // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
