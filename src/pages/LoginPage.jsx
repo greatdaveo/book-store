@@ -25,7 +25,10 @@ const LoginPage = () => {
       body: JSON.stringify(authDetails),
     };
 
-    const response = await fetch("http://localhost:8000/login", requestOptions);
+    const response = await fetch(
+      "http://localhost:8000/login/login",
+      requestOptions
+    );
     const data = await response.json();
     // console.log(data);
     data.accessToken ? navigate("/products") : toast.error(data);
