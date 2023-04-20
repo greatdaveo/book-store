@@ -1,14 +1,14 @@
 import React from "react";
 import ProductCard from "../../../components/ProductCard";
 import { useState, useEffect } from "react";
+import { getFeaturedList } from "../../../services/productService";
 
 const FeaturedProduct = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     async function fetchProducts() {
-      const response = await fetch("http://localhost:8000/featured_products");
-      const data = await response.json();
+      const data = await getFeaturedList();
       setProducts(data);
     }
     fetchProducts();

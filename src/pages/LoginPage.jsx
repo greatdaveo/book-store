@@ -4,6 +4,9 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import "../styles/pages/LoginPage.css";
 
+// LOGIN FUNCTION FROM authService
+import { login } from "../services/authService";
+
 const LoginPage = () => {
   const navigate = useNavigate();
 
@@ -18,25 +21,8 @@ const LoginPage = () => {
       password: passwordRef.current.value,
     };
 
-    // This is for the JSON request options
-    const requestOptions = {
-      method: "POST",
-      headers: { "content-Type": "application/json" },
-      body: JSON.stringify(authDetails),
-    };
-
-    const response = await fetch(
-      "http://localhost:8000/login/login",
-      requestOptions
-    );
-    const data = await response.json();
-    // console.log(data);
+    const data = await login(authDetails);
     data.accessToken ? navigate("/products") : toast.error(data);
-
-    if (data.accessToken) {
-      sessionStorage.setItem("token", JSON.stringify(data.accessToken));
-      sessionStorage.setItem("userID", JSON.stringify(data.user.id));
-    }
   }
   // ::::::::::::::::::::::::::::::::::::::::::::::::
 

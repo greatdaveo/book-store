@@ -5,14 +5,16 @@ import Rating from "../components/Rating";
 import { useParams } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 
+// This id from productService
+import { getProduct } from "../services/productService";
+
 const ProductDetail = () => {
   const [product, setProduct] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
     async function fetchProduct() {
-      const response = await fetch(`http://localhost:8000/products/${id}`);
-      const data = await response.json();
+      const data = await getProduct(id);
       setProduct(data);
     }
     fetchProduct();

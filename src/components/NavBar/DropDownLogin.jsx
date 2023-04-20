@@ -1,14 +1,30 @@
 import React from "react";
 import "../../styles/components/NavBar/DropDownLogin.css";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { logout } from "../../services/authService";
 
-const DropDownLogin = () => {
+// This is the getUser from the dataService
+import { getUser } from "../../services/dataService";
+
+const DropDownLogin = ({ setDropdown }) => {
   const navigate = useNavigate();
 
-  function handleLogout(e) {
-    sessionStorage.removeItem("token");
-    sessionStorage.removeItem("userID");
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getUser();
+      data.email ? setUser(data) : handleLogout();
+    }
+    fetchData();
+  }, []);
+
+  function handleLogout() {
+    // FOR logout from authService
+    logout();
+    setDropdown(false);
     navigate("/");
   }
 
@@ -16,7 +32,7 @@ const DropDownLogin = () => {
     <div className="login-drop-down">
       <ul>
         <li style={{ borderBottom: "1px solid #f2f1ef" }}>
-          <p>dave@example.com</p>
+          <p>{user.email}</p>
         </li>
         <Link to="">
           <li>ebook</li>

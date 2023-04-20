@@ -53,7 +53,12 @@ const NavBar = ({ darkMode, setDarkMode }) => {
               onClick={() => setDropDown(!dropDown)}
             >
               <i className="bi bi-person-circle"></i>
-              {dropDown && (token ? <DropDownLogout /> : <DropDownLogin />)}
+              {dropDown &&
+                (token ? (
+                  <DropDownLogout />
+                ) : (
+                  <DropDownLogin setDropDown={setDropDown} />
+                ))}
             </Link>
           </div>
         </nav>

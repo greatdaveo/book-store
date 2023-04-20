@@ -5,10 +5,11 @@ import FilterBar from "./components/FilterBar";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useFilter } from "../../context/FilterContext";
+// This is from productService
+import { getProductList } from "../../services/productService";
 
 const ProductList = () => {
   const [showFilter, setShowFilter] = useState(false);
-  // const [products, setProducts] = useState([]);
 
   // THIS IS FOR THE SEARCH FEATURE
   const search = useLocation().search;
@@ -19,13 +20,8 @@ const ProductList = () => {
 
   useEffect(() => {
     async function fetchProducts() {
-      const response = await fetch(
-        `http://localhost:8000/products?name_like=${
-          searchTerm ? searchTerm : ""
-        }`
-      );
-      const data = await response.json();
-      // setProducts(data);
+      const data = await getProductList(searchTerm);
+
       initialProductList(data);
     }
     fetchProducts();

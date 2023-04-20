@@ -4,27 +4,15 @@ import { useState, useEffect } from "react";
 import DashboardCard from "../../pages/Dashboard/components/DashboardCard";
 import EmptyDashboard from "../../pages/Dashboard/components/EmptyDashboard";
 
+// This is the getUserOrders from dataService
+import { getUserOrders } from "../../services/dataService";
+
 const DashboardPage = () => {
   const [orders, setOrders] = useState([]);
 
-  // FOR THE TOKEN
-  const token = JSON.parse(sessionStorage.getItem("token"));
-  const userID = JSON.parse(sessionStorage.getItem("userID"));
-
   useEffect(() => {
     async function fetchOrders() {
-      const response = await fetch(
-        `http://localhost:8000/660/orders?user.id=${userID}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      const data = await response.json();
+      const data = await getUserOrders();
       setOrders(data);
     }
     fetchOrders();

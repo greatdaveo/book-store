@@ -3,6 +3,9 @@ import "../styles/pages/SignUpPage.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
+// THIS IS FOR THE register function from authService
+import { register } from "../services/authService";
+
 const SignUp = () => {
   // For useNavigate in the React Toastify
   const navigate = useNavigate();
@@ -16,26 +19,9 @@ const SignUp = () => {
       password: e.target.password.value,
     };
 
-    // This is for the JSON request options
-    const requestOptions = {
-      method: "POST",
-      headers: { "content-Type": "application/json" },
-      body: JSON.stringify(authDetails),
-    };
-
-    const response = await fetch(
-      "http://localhost:8000/register",
-      requestOptions
-    );
-    const data = await response.json();
+    const data = await register(authDetails);
     // THIS IS FOR THE REACT TOASTIFY
-    // console.log(data);
     data.accessToken ? navigate("/products") : toast.error(data);
-
-    if (data.accessToken) {
-      sessionStorage.setItem("token", JSON.stringify(data.accessToken));
-      sessionStorage.setItem("userID", JSON.stringify(data.user.id));
-    }
   }
   // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 

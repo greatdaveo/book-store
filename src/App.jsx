@@ -68,6 +68,8 @@ function App() {
             <Route path="/register" element={<SignUpPage />} />
             <Route path="/error" element={<PageNotFound />} />
             <Route path="/register" element={<SignUpPage />} />
+
+            <Route path="*" element={<PageNotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>
