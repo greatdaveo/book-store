@@ -28,7 +28,7 @@ const DashboardPage = () => {
       setOrders(data);
     }
     fetchOrders();
-  }, []);
+  }, []); //eslint-disable-line
 
   return (
     <main className="dashboard-page">
