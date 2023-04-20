@@ -6,7 +6,7 @@ const DropDownLogout = () => {
   return (
     <div className="logout-drop-down">
       <ul>
-        <Link to="">
+        <Link to="/products">
           <li>ebook</li>
         </Link>
         <Link to="/login">

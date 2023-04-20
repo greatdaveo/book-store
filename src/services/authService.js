@@ -7,7 +7,7 @@ export async function login(authDetails) {
   };
 
   const response = await fetch(
-    "http://localhost:8000/login/login",
+    `${process.env.REACT_APP_HOST}/login`,
     requestOptions
   );
 
@@ -36,7 +36,7 @@ export async function register(authDetail) {
   };
 
   const response = await fetch(
-    "http://localhost:8000/register",
+    `${process.env.REACT_APP_HOST}/register`,
     requestOptions
   );
 

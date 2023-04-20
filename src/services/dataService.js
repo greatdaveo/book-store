@@ -20,7 +20,7 @@ export async function getUser() {
   };
 
   const response = await fetch(
-    `http://localhost:8000/600/users/${browserData.userID}`,
+    `${process.env.REACT_APP_HOST}/600/users/${browserData.userID}`,
     requestOptions
   );
 
@@ -48,7 +48,7 @@ export async function getUserOrders() {
   };
 
   const response = await fetch(
-    `http://localhost:8000/660/orders?user.id=${browserData.userID}`,
+    `${process.env.REACT_APP_HOST}/660/orders?user.id=${browserData.userID}`,
     requestOptions
   );
 
@@ -87,7 +87,7 @@ export async function createOrder(cartList, totalPrice, user) {
   };
 
   const response = await fetch(
-    "http://localhost:8000/660/orders",
+    `${process.env.REACT_APP_HOST}/660/orders`,
     requestOptions
   );
 
