@@ -17,11 +17,12 @@ const DashboardPage = () => {
         const data = await getUserOrders();
         setOrders(data);
       } catch (error) {
+        // console.log(error.message)
         toast.error(error.message, { closeButton: true });
       }
     }
     fetchOrders();
-  }, []); //eslint-disable-line
+  }, []);
 
   return (
     <main className="dashboard-page">

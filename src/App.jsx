@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import SharedLayouts from "./components/SharedLayouts";
 import CartPage from "./pages/Cart/CartPage";
-import DashboardPage from "./pages/DashBoard/DashboardPage";
+import DashboardPage from "./pages/Dashboard/DashboardPage";
 import HomePage from "./pages/Home/HomePage";
 import LoginPage from "./pages/LoginPage";
 import OrderPage from "./pages/Order/OrderPage";

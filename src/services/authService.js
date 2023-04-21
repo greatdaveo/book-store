@@ -6,10 +6,7 @@ export async function login(authDetails) {
     body: JSON.stringify(authDetails),
   };
 
-  const response = await fetch(
-    `${process.env.REACT_APP_HOST}/login`,
-    requestOptions
-  );
+  const response = await fetch(`http://localhost:8000/login`, requestOptions);
 
   //   console.log(response);
   if (!response.ok) {
@@ -27,7 +24,7 @@ export async function login(authDetails) {
 }
 
 // FOR SignUpPage
-export async function register(authDetail) {
+export async function register(authDetails) {
   // This is for the JSON request options
   const requestOptions = {
     method: "POST",
@@ -36,7 +33,7 @@ export async function register(authDetail) {
   };
 
   const response = await fetch(
-    `${process.env.REACT_APP_HOST}/register`,
+    `http://localhost:8000/register`,
     requestOptions
   );
 

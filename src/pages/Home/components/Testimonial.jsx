@@ -6,8 +6,8 @@ const Testimonial = () => {
   return (
     <div className="testimonial-container">
       <div className="testimonials-cover">
-        {testimonialData.map((data) => (
-          <div className="testimonialData">
+        {testimonialData.map((data, i) => (
+          <div className="testimonialData" key={i}>
             <h4>{data.text1}</h4>
             <p>{data.text2}</p>
 
