@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../styles/components/NavBar/DropDownLogout.css";
+// import "../../styles/components/NavBar/DropDownLogout.css";
 
 const DropDownLogout = () => {
   return (
-    <div className="logout-drop-down">
+    <div className="login-drop-down">
       <ul>
         <Link to="/products">
           <li>ebook</li>
