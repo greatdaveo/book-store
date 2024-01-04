@@ -31,12 +31,14 @@ const DashboardPage = () => {
       </section>
 
       <section>
+      
         <div>
           {orders.length &&
             orders.map((order) => (
               <DashboardCard key={order.id} order={order} />
             ))}
         </div>
+        
       </section>
 
       <section>{!orders.length && <EmptyDashboard />}</section>
