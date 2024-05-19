@@ -6,7 +6,10 @@ export async function login(authDetails) {
     body: JSON.stringify(authDetails),
   };
 
-  const response = await fetch(`http://localhost:8000/login`, requestOptions);
+  const response = await fetch(
+    `https://bookstore-server-2eky.onrender.com/login`,
+    requestOptions
+  );
 
   //   console.log(response);
   if (!response.ok) {
@@ -33,7 +36,7 @@ export async function register(authDetails) {
   };
 
   const response = await fetch(
-    `http://localhost:8000/register`,
+    `https://bookstore-server-2eky.onrender.com/register`,
     requestOptions
   );
 
